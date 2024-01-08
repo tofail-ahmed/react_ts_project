@@ -24,28 +24,31 @@ const Form = () => {
 const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
      const inputName=e.target.name;
      const inputValue= e.target.value;
-     console.log([inputName])
+//      console.log([inputName])
 
       setUser({ ...user, [inputName]:inputValue })
 }
   return (
       
     <div>
+    
+   
+    
       {submitted ? (
-        <div className="bg-slate-600 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl">
-          <h2>User Details:</h2>
-          <h3>Name: {user.name}</h3>
-          <h3>Email: {user.email}</h3>
-          <h3>Password: {user.password}</h3>
+        <div className="bg-slate-400 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl">
+          <h2 className="text-slate-700">User Details:</h2>
+          <h3 className="text-slate-700">Name: {user.name}</h3>
+          <h3 className="text-slate-700">Email: {user.email}</h3>
+          <h3 className="text-slate-700">Password: {user.password}</h3>
         </div>
       ) : (
         <form
           onSubmit={handleSubmit}
           
-          className="bg-slate-600 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl"
+          className="bg-slate-400 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl"
         >
           <div className="">
-            <label>
+            <label  className="text-slate-500">
               Username:
               <input
                 onChange={handleChange}
@@ -55,17 +58,17 @@ const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
             </label>
           </div>
           <div>
-            <label>
+            <label  className="text-slate-500">
               Email:
               <input
                 onChange={handleChange}
                 type="email"
                 name="email"
               />
-            </label>
+            </label >
           </div>
           <div>
-            <label>
+            <label  className="text-slate-500">
               Password:
               <input
                  onChange={handleChange}
