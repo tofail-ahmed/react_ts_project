@@ -12,8 +12,24 @@ const Form = () => {
     e.preventDefault();
     setSubmitted(true);
   };
+//   const handleNameChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+//       setUser({ ...user, name: e.target.value })
+//   }
+//   const handleEmailChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+//       setUser({ ...user, email: e.target.value })
+//   }
+//   const handlePasswordChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+//       setUser({ ...user, password: e.target.value })
+//   }
+const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+     const inputName=e.target.name;
+     const inputValue= e.target.value;
+     console.log([inputName])
 
+      setUser({ ...user, [inputName]:inputValue })
+}
   return (
+      
     <div>
       {submitted ? (
         <div className="bg-slate-600 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl">
@@ -25,13 +41,14 @@ const Form = () => {
       ) : (
         <form
           onSubmit={handleSubmit}
+          
           className="bg-slate-600 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl"
         >
           <div className="">
             <label>
               Username:
               <input
-                onChange={(e) => setUser({ ...user, name: e.target.value })}
+                onChange={handleChange}
                 type="text"
                 name="name"
               />
@@ -41,7 +58,7 @@ const Form = () => {
             <label>
               Email:
               <input
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                onChange={handleChange}
                 type="email"
                 name="email"
               />
@@ -51,7 +68,7 @@ const Form = () => {
             <label>
               Password:
               <input
-                 onChange={(e) => setUser({...user,password: e.target.value})}
+                 onChange={handleChange}
                 type="password"
                 name="password"
               />
