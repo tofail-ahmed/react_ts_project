@@ -1,27 +1,49 @@
-import React, { useReducer } from "react";
-const initialState = { count: 0 };
+import React, { ChangeEvent, useReducer } from "react";
+const initialState = { name: "", email: "",password:'' };
 const reducer = (currentState, action) => {
   switch (action.type) {
-    case "increment":
-      return { count: currentState.count + 1 };
-    case "decrement":
-      return { count: currentState.count - 1 };
-    case "reset":
-      return {count:initialState.count};
+    case "AddName":
+      return {...currentState,name:action.payload};
+    case "AddEmail":
+      return {...currentState,email:action.payload};
+    case "AddPassword":
+      return {...currentState,password:action.payload};
+    
 
     default:
       return currentState;
   }
 };
+
 const UseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const handleSubmit=(e:ChangeEvent<HTMLFormElement>)=>{
+    e.preventDefault();
+    console.log(state)
+  
+  }
   return (
-    <div>
-      <h1>{state.count}</h1>
-      <button className=" text-green-400 font-bold bg-green-200 px-4 py-2 rounded-lg" onClick={()=>dispatch({type:"increment"})}>Increment</button>
-      <button className=" text-red-400 font-bold bg-red-200 px-4 py-2 rounded-lg" onClick={()=>dispatch({type:"decrement"})}>Decrement</button>
-      <button className=" text-blue-400 font-bold bg-blue-200 px-4 py-2 rounded-lg" onClick={()=>dispatch({type:"reset"})}>Reset</button>
-    </div>
+    <form onSubmit={handleSubmit} className="bg-slate-400 p-4 mx-auto flex flex-col justify-center gap-4 my-4 rounded-xl">
+      <div className="">
+        <label className="text-slate-500">
+          Username:
+          <input onChange={(e)=>dispatch({type:"AddName",payload:e.target.value})} type="text" name="name" />
+        </label>
+      </div>
+      <div>
+        <label className="text-slate-500">
+          Email:
+          <input onChange={(e)=>dispatch({type:"AddEmail",payload:e.target.value})} type="email" name="email" />
+        </label>
+      </div>
+      <div>
+        <label className="text-slate-500">
+          Password:
+          <input onChange={(e)=>dispatch({type:"AddPassword",payload:e.target.value})} type="password" name="password" />
+        </label>
+      </div>
+      <button type="submit">Register</button>
+    </form>
   );
 };
 
