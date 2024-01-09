@@ -1,6 +1,16 @@
 import React, { ChangeEvent, useReducer } from "react";
+
+// type TCurrentState={
+// name:string;
+// email:string;
+// password:string;
+// }
+type TAction={
+  type:string;
+  payload:string;
+}
 const initialState = { name: "", email: "",password:'' };
-const reducer = (currentState, action) => {
+const reducer = (currentState:typeof initialState, action:TAction) => {
   switch (action.type) {
     case "AddName":
       return {...currentState,name:action.payload};
@@ -8,8 +18,8 @@ const reducer = (currentState, action) => {
       return {...currentState,email:action.payload};
     case "AddPassword":
       return {...currentState,password:action.payload};
-    
-
+      case "ResetForm": // New action type to reset the form
+      return initialState; // Reset to the initial state
     default:
       return currentState;
   }
@@ -19,7 +29,9 @@ const UseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const handleSubmit=(e:ChangeEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    console.log(state)
+    console.log(state);
+   
+
   
   }
   return (
