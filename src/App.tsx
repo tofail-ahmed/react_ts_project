@@ -6,9 +6,11 @@ import "./App.css";
 // import Counter from "./pages/Counter";
 // import Form from "./pages/form";
 // import UseReducer from "./pages/UseReducer";
-import UseRefForm from "./pages/UseRefForm";
+// import UseRefForm from "./pages/UseRefForm";
 import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
-import { MenuContext, MenuItem, MenuList } from "./component/Menu";
+import UserAvatar from "./component/UserAvatar";
+import GameResult from "./pages/GameResult";
+// import { MenuContext, MenuItem, MenuList } from "./component/Menu";
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -31,12 +33,15 @@ function App() {
       {/* <UseEffectExample></UseEffectExample> */}
       {/* <UseRef></UseRef> */}
 
-      <UseRefForm></UseRefForm>
+      {/* <UseRefForm></UseRefForm>
       <MenuList>
         <MenuItem>
        
         </MenuItem>
-      </MenuList>
+      </MenuList> */}
+
+      {/* <UserAvatar></UserAvatar> */}
+      <GameResult></GameResult>
     </div>
   );
 }

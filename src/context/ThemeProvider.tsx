@@ -8,7 +8,7 @@ type TThemeProviderProps = {
   children: ReactNode;
 };
 const ThemeProvider = ({ children }: TThemeProviderProps) => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
  const values = {
     dark,
     setDark,
