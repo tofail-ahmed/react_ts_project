@@ -7,15 +7,23 @@ import "./App.css";
 // import Form from "./pages/form";
 // import UseReducer from "./pages/UseReducer";
 import UseRefForm from "./pages/UseRefForm";
-import { ThemeContext } from "./context/ThemeProvider";
+import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
+import { MenuContext, MenuItem, MenuList } from "./component/Menu";
 
 function App() {
   // const [counter, setCounter] = useState(0);
-const { dark, setDark } = useContext(ThemeContext);
+  const { dark, setDark } = useContext(ThemeContext) as TThemeContext;
+  // console.log(dark)
   return (
-    <div className={`h-screen w-full ${dark?"bg-black":"bg-white"}`}>
-      {dark?<button className="text-white"  onClick={()=>setDark(!dark)}>Light</button>:<button onClick={()=>setDark(!dark)}>Drak</button>}
-    
+    <div className={`h-screen w-full ${dark ? "bg-black" : "bg-white"}`}>
+      {dark ? (
+        <button className="text-white" onClick={() => setDark(!dark)}>
+          Light
+        </button>
+      ) : (
+        <button onClick={() => setDark(!dark)}>Drak</button>
+      )}
+
       {/* <Counter counter={counter} setCounter={setCounter}></Counter> */}
 
       {/* <Form></Form> */}
@@ -24,6 +32,11 @@ const { dark, setDark } = useContext(ThemeContext);
       {/* <UseRef></UseRef> */}
 
       <UseRefForm></UseRefForm>
+      <MenuList>
+        <MenuItem>
+       
+        </MenuItem>
+      </MenuList>
     </div>
   );
 }
