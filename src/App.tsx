@@ -8,8 +8,9 @@ import "./App.css";
 // import UseReducer from "./pages/UseReducer";
 // import UseRefForm from "./pages/UseRefForm";
 import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
-import UserAvatar from "./component/UserAvatar";
-import GameResult from "./pages/GameResult";
+import UserContainer from "./component/UserContainer";
+// import UserAvatar from "./component/UserAvatar";
+// import GameResult from "./pages/GameResult";
 // import { MenuContext, MenuItem, MenuList } from "./component/Menu";
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
       </MenuList> */}
 
       {/* <UserAvatar></UserAvatar> */}
-      <GameResult></GameResult>
+      {/* <GameResult></GameResult> */}
+      <UserContainer></UserContainer>
     </div>
   );
 }
