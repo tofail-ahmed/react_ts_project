@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import "./App.css";
 import UseEffectExample from "./pages/UseEffectExample";
+import UseRef from "./pages/UseRef";
 // import Counter from "./pages/Counter";
 // import Form from "./pages/form";
 // import UseReducer from "./pages/UseReducer";
@@ -14,7 +15,8 @@ function App() {
 
       {/* <Form></Form> */}
       {/* <UseReducer></UseReducer> */}
-      <UseEffectExample></UseEffectExample>
+      {/* <UseEffectExample></UseEffectExample> */}
+      <UseRef></UseRef>
     </>
   );
 }
