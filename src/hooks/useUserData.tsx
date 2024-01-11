@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 const useUserData = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +25,7 @@ const useUserData = () => {
   useEffect(() => {
     getUser();
     return()=>{
-      // controller.abort()
+      controller.abort()
     }
   },[]);
   return { user, error, isLoading };
